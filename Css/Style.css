@@ -1,0 +1,151 @@
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 15px;
+}
+.card-text {
+    font-size: 0.9rem;
+}
+.btn-center {
+    align-self: center;
+    margin-top: auto;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.9)),
+     no-repeat center center/cover;
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+}
+
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-section .btn-light {
+    font-size: 1.2rem;
+    padding: 10px 30px;
+    background-color: #3498db;
+    border-color: #3498db;
+    animation: bounceIn 1s ease-out;
+}
+
+.hero-section .btn-light:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+/* Prueba */
+.btn-lg {
+    color: #f5e4dc;
+    background-color:  #2c3e50;
+}
+
+.btn-lg:hover {
+    background-color: #f5e4dc;
+    font-weight: bold;
+}
+
+/* Prueba 2 */
+
+.card-related-products {
+    max-width: 250px;
+    margin: auto;
+}
+
+.related-products-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.card-related-products img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.navbar {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.product-card {
+    background-color: #f5e4dc !important;
+}
+
+.btn-success {
+    background-color: #2c3e50;
+}
+
+.precio {
+    font-size: 40px;
+    font-weight: bold;
+
+}
+
+.mt-5 {
+    margin-top: 2rem !important;
+}
+
+
+.product-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+    margin-left: 1rem;
+}
+
+.product-card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.container-main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.precio {
+    font-size: 40px;
+    font-weight: bold;
+
+}
+
+.texto {
+    color: #2c3e50;
+    font-size: 18px;
+}
+
+
+/*  */
+/* Clase para asegurar que todas las imágenes tengan el mismo tamaño */
+.same-size-img {
+    width: 100%; /* Hace que las imágenes ocupen el ancho completo de su contenedor */
+    height: 300px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Asegura que las imágenes se ajusten manteniendo su proporción */
+}

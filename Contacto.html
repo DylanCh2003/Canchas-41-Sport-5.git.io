@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquiler de Canchas de Fútbol</title>
+    <title>Horarios de Canchas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Css/wickedcss.min (1).css">
+    <link rel="stylesheet" href="./Css/Style.css">
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #002855;
+            color: #fff;
+            padding: 1.5rem 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        /* Navegación */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffc107;
+            transform: translateY(-2px);
+        }
+
+        /* Sección de contenido */
+        section {
+            padding: 40px 10%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #666;
+        }
+
+        /* Tabla de horarios */
+        .horarios {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .horarios th,
+        .horarios td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .horarios th {
+            background-color: #002855;
+            color: white;
+        }
+
+        .disponible {
+            background-color: #c8e6c9;
+        }
+
+        .reservado {
+            background-color: #ffcdd2;
+        }
+
+        /* Botón de volver */
+        .boton-volver {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #002855;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .boton-volver:hover {
+            background-color: #0056b3;
+        }
+
+        .card-contact {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .card-body {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #002855;
+            color: white;
+            font-size: 1.25rem;
+            padding: 10px;
+        }
+
+        .form-container {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #002855;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #004aad;
+}
+
+
+        /* Footer */
+        footer {
+            background-color: #002855;
+            color: #fff;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            font-size: 1rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1>Canchas 41 SPORT 5</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Principal</a></li>
+                <li><a href="Horarios.html">Horarios</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header" class="pulse">
+                        Cancha 41 SPORT 5
+                    </div>
+                    <div class="card-body">
+                        <img src="./Imagenes/Logo-removebg-preview.png" alt="Logo de la empresa" style="width: 150px; height: auto; display: block; margin: auto;">
+                        <h5 class="card-title">Información de la cancha</h5>
+                        <p class="card-text">Teléfono: <strong>83431413</strong></p>
+                        <p class="card-text">Ubicación: <strong>Barreal de Heredia</strong></p>
+                        <p class="card-text">Horario: <strong>Lunes a Viernes 6am - 5pm, Sábado 6am - 12pm</strong></p>
+                        <p class="card-text">Domingo cerrado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <main>
+        <div class="container mt-5 d-flex justify-content-center">
+            <div class="form-container p-4 shadow-lg bg-white rounded" style="max-width: 500px; width: 100%;">
+                <h3 class="text-center mb-4">Reserva tu cancha</h3>
+                <form id="reservationForm">
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="fullName" name="fullName" 
+                            placeholder="Ej: Juan Pérez" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}" 
+                            title="Debe contener solo letras y mínimo 3 caracteres" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email" 
+                            placeholder="correo@prueba.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="+506 80000000" 
+                            pattern="^\+506\s?\d{8}$" title="Debe seguir el formato +506 80000000" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Fecha de reserva</label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="hour" class="form-label">Hora de reserva</label>
+                        <select class="form-control" id="hour" name="hour" required>
+                            <option value="" disabled selected>Selecciona una hora</option>
+                            <option value="06:00">06:00 AM</option>
+                            <option value="07:00">07:00 AM</option>
+                            <option value="08:00">08:00 AM</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">01:00 PM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                            <option value="17:00">05:00 PM</option>
+                            <option value="18:00">06:00 PM</option>
+                            <option value="19:00">07:00 PM</option>
+                            <option value="20:00">08:00 PM</option>
+                            <option value="21:00">09:00 PM</option>
+                            <option value="22:00">10:00 PM</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Reservar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Evitar que se seleccione una fecha pasada
+            const dateInput = document.getElementById("date");
+            const today = new Date().toISOString().split("T")[0];
+            dateInput.setAttribute("min", today);
+        });
+    </script>
+
+    <!-- Modal de Confirmación -->
+<div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmacionModalLabel">Reserva en espera</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                Tu reservación ha sido recibida y está en espera de confirmación. Te notificaremos pronto.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("reservationForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Evita el envío del formulario para mostrar el modal
+        var confirmacionModal = new bootstrap.Modal(document.getElementById("confirmacionModal"));
+        confirmacionModal.show();
+    });
+</script>
+    
+    
+
+
+
+    <!-- Footer -->
+    <footer class=" text-light pt-5 pb-4" style="color: #002855;">
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start" >
+                <!-- Información de la Empresa -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" >
+                    <h5 class="text-uppercase mb-4 font-weight-bold">Sobre Nosotros</h5>
+                    <hr class="mb-4">
+                    <p>
+                        Alquilamos canchas de fútbol de alta calidad con césped sintético y excelente iluminación. Ofrecemos un sistema de reservas fácil para que disfrutes de un espacio cómodo y seguro para fútbol 5 y fútbol sala.                </p>
+                </div>
+    
+                <!-- Recursos -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold">Recursos</h5>
+                    <hr class="mb-4">
+                    <p>
+                        <a href="#faq" class="text-light" style="text-decoration: none;">Preguntas Frecuentes</a>
+                    </p>
+                    <p>
+                        <a href="#contact" class="text-light" style="text-decoration: none;">Contacto</a>
+                    </p>
+                </div>
+    
+                <!-- Contacto -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold">Contacto</h5>
+                    <hr class="mb-4">
+                    <p>
+                        <i class="fas fa-home me-3"></i> Cartago, Costa Rica
+                    </p>
+                    <p>
+                        <a href="mailto:info@empresa.com" target="_blank" class="text-light" style="text-decoration: none;">
+                            <i class="fas fa-envelope me-3"></i>Canchas@gmail.com
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://wa.me/50622222222" target="_blank" class="text-light" style="text-decoration: none;">
+                            <i class="fab fa-whatsapp"></i>+506 2222-2222
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://wa.me/50622222222" target="_blank" class="text-light" style="text-decoration: none;">
+                            <i class="fab fa-whatsapp"></i>+506 2222-2222
+                        </a>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Derechos y Redes Sociales -->
+            <hr class="mb-4">
+            <div class="text-center mb-2">
+                <p>
+                    &copy; 2024 Canchas Deportivas. Todos los derechos reservados.
+                </p>
+            </div>
+            <div class="text-center">
+                <ul class="list-unstyled list-inline">
+                    <li class="list-inline-item">
+                        <a href="https://www.Instagram.com/in/empresa" target="_blank" class="text-light"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://facebook.com/empresa" target="_blank" class="text-light"><i class="fab fa-facebook"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>
